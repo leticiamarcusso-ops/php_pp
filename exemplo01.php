@@ -12,7 +12,7 @@ $mariaDescontos = number_format($mariaSalario*0.275 + $mariaPrevidencia, 2, ",",
 
 $joseSalario = 3000;
 $josePrevidencia = 300;
-$joseNome = "João Salgado";
+$joseNome = "jose Salgado";
 $joseDescontos = number_format($joseSalario*0.275 + $josePrevidencia, 2, ",", ".");
 
 
