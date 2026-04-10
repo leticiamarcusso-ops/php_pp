@@ -51,3 +51,11 @@ $conta->creditar(50);
 $conta->debitar(100);
 echo "Saldo da conta: $conta->numero: $conta->saldo <br>";
 
+$poupanca= new Poupanca(2, 150);
+$poupanca->creditar(50);
+$poupanca->debitar(100);
+$poupanca->atualizarJuros();
+echo "Saldo da conta: $poupanca->numero: $poupanca->saldo <br>";
+
+
+
