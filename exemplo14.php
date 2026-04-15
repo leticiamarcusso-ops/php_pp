@@ -37,7 +37,13 @@ class Conta
 class Poupanca extends Conta
 // subclasse
 {
-    public $juros = 0.05;
+    public $juros;
+
+    function __construct($numero, $saldo, $juros)
+    {
+        parent::__construct($numero, $saldo);
+       $this->juros = $juros;
+    }
 
     function  atualizarJuros()
     {
@@ -51,7 +57,7 @@ $conta->creditar(50);
 $conta->debitar(100);
 echo "Saldo da conta: $conta->numero: $conta->saldo <br>";
 
-$poupanca= new Poupanca(2, 150,0.10);
+$poupanca= new Poupanca(2, 150, 0.10);
 $poupanca->creditar(50);
 $poupanca->debitar(100);
 $poupanca->atualizarJuros();
