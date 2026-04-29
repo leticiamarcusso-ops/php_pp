@@ -27,3 +27,32 @@ class NotificadorWhatsApp implements INotificador {
         echo "WhatsApp enviado para {$destinatario}. Mensagem: {$mensagem}.";
     }
 }
+
+// Classe que usa a interface
+class SistemaNotificacao {
+   private $notificador;
+
+    public function __construct(INotificador $notificador)
+    {
+         $this->notificador = $notificador;
+    }
+
+    public function notificarUsuario($destinatario, $mensagem)
+    {
+        $this->notificador->enviar($destinatario, $mensagem);
+    }
+
+}
+
+$sistemaEmail = new SistemaNotificacao(new NotificadorEmail());
+$sistemaSMS = new SistemaNotificacao(new NotificadorSMS());
+$sistemaWhatsApp = new SistemaNotificacao(new NotificadorWhatsApp());
+
+$sistemaEmail->notificarUsuario("joao@email.com", "Seu Pedido foi confirmado!");
+$sistemaSMS->notificarUsuario("17997651234", "Seu Pedido foi confirmado!");
+$sistemaWhatsApp->notificarUsuario("17997651234", "Seu Pedido foi confirmado!");
+
+
+
+
+
